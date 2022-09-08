@@ -1,0 +1,7 @@
+#spring:
+#  r2dbc:
+#    url: r2dbc:pool:postgresql://localhost:5432/my_db
+#    username:
+#    password:
+server:
+  port: 8080
