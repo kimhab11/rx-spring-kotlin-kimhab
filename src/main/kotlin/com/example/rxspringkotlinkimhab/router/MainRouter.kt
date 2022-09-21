@@ -32,5 +32,6 @@ class MainRouter {
     fun forOrder(orderHandler: OrderHandler): RouterFunction<ServerResponse> =
         router {
             GET("orders", orderHandler::findAll)
+            POST("order" , orderHandler::addOrder)
         }
 }
