@@ -7,6 +7,7 @@ import com.example.rxspringkotlinkimhab.service.AppUserService
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+import java.util.UUID
 
 @Service
 class AppUserServiceImp(private val appUserRepository: AppUserRepository) : AppUserService {
@@ -16,7 +17,7 @@ class AppUserServiceImp(private val appUserRepository: AppUserRepository) : AppU
             .map { appUser -> appUser.toDto() }
     }
 
-    override fun findById(id: Long): Mono<AppUserDto> {
+    override fun findById(id: UUID): Mono<AppUserDto> {
         return appUserRepository.findById(id).map { it.toDto() }
     }
 

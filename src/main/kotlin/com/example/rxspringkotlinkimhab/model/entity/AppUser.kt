@@ -11,7 +11,7 @@ data class AppUser(
 
     @Id
     @Column("id")
-    val id: Long? = null,
+    val id: UUID? = null,
 
     @Column("fullname")
     val fullname: String

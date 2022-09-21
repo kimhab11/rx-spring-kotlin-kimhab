@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
 import reactor.core.publisher.Mono
+import java.util.UUID
 
 @Component
 class AppUserHandler(val appUserService: AppUserService) {
@@ -19,7 +20,7 @@ class AppUserHandler(val appUserService: AppUserService) {
     }
 
     fun findByid(request: ServerRequest): Mono<ServerResponse> {
-        val id:Long = request.pathVariable("id").toLong()
+        val id:UUID = UUID.fromString(request.pathVariable("id"))
         return ServerResponse
             .ok()
             .body(appUserService.findById(id) , AppUserDto::class.java)
